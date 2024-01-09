@@ -45,7 +45,9 @@ public class Order {
         System.out.println("Seats: " + seats + " / " + table.getSeats());
         System.out.println("Order time: " + orderTime);
         System.out.println("Order state: " + orderState);
+        System.out.println("Seats price: " + priceSeat);
         System.out.println();
+        System.out.println("Detail order");
         menu.getPizzasList().forEach(System.out::println);
         menu.getDrinksList().forEach(System.out::println);
         System.out.println("Order price: " + getPriceSeat());

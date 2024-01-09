@@ -11,6 +11,7 @@ import java.util.Random;
 
 @Configuration
 public class BeansConfiguration {
+
     @Bean
    public Toppings cheese (){
         return new Toppings("Cheese", 92, 0.69);
