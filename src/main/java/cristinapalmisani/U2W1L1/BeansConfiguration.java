@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 @Configuration
 public class BeansConfiguration {
@@ -65,20 +66,20 @@ public class BeansConfiguration {
         return new AlcolicDrink("Beer", 500, 4, 0.5, 7);
     }
 
-    @Bean
+    @Bean("margherita")
     public Pizzas margherita(){
         return new Pizzas("Pizza Margherita", 1104, 5, Arrays.asList(tomato(), cheese()));
     }
-    @Bean
+    @Bean("hawaiian")
     public Pizzas hawaiian(){
         return new Pizzas("Hawaiian Pizza", 1024, 7, Arrays.asList(tomato(), cheese(), ham(), pineapple()));
     }
 
-    @Bean
+    @Bean("salami")
     public Pizzas salamiPizza(){
         return new Pizzas("Salami Pizza", 1160, 6, Arrays.asList(tomato(), cheese(), salami()));
     }
-    @Bean
+    @Bean("onion")
     public Pizzas onionPizza(){
         return new Pizzas("Onion Pizza", 1000, 5, Arrays.asList(tomato(), cheese(), onions()));
     }
@@ -107,6 +108,12 @@ public class BeansConfiguration {
         toppingsList.add(pineapple());
 
         return new Menu(pizzaList, drinkList, toppingsList);
+    }
+
+    @Bean
+    private Table getTable(){
+        Random rndm = new Random();
+        return new Table(rndm.nextInt(12) + 1, rndm.nextInt(10) + 2);
     }
     }
 
