@@ -18,7 +18,7 @@ public class Order {
     private int orderNumber;
     private Menu menu;
     private Table table;
-    private OrderState orderState;
+    private OrderState orderState = OrderState.IN_PROGRESS;
     private int seats;
     private LocalTime orderTime = LocalTime.now();
     @Value("${order.seat}")

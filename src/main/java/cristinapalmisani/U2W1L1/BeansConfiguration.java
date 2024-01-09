@@ -66,20 +66,20 @@ public class BeansConfiguration {
         return new AlcolicDrink("Beer", 500, 4, 0.5, 7);
     }
 
-    @Bean("margherita")
+    @Bean
     public Pizzas margherita(){
         return new Pizzas("Pizza Margherita", 1104, 5, Arrays.asList(tomato(), cheese()));
     }
-    @Bean("hawaiian")
+    @Bean
     public Pizzas hawaiian(){
         return new Pizzas("Hawaiian Pizza", 1024, 7, Arrays.asList(tomato(), cheese(), ham(), pineapple()));
     }
 
-    @Bean("salami")
+    @Bean
     public Pizzas salamiPizza(){
         return new Pizzas("Salami Pizza", 1160, 6, Arrays.asList(tomato(), cheese(), salami()));
     }
-    @Bean("onion")
+    @Bean
     public Pizzas onionPizza(){
         return new Pizzas("Onion Pizza", 1000, 5, Arrays.asList(tomato(), cheese(), onions()));
     }
@@ -111,7 +111,7 @@ public class BeansConfiguration {
     }
 
     @Bean
-    private Table getTable(){
+    public Table getTable(){
         Random rndm = new Random();
         return new Table(rndm.nextInt(12) + 1, rndm.nextInt(10) + 2);
     }

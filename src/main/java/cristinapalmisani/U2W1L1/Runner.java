@@ -8,6 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 public class Runner implements CommandLineRunner {
     @Override
@@ -17,9 +19,13 @@ public class Runner implements CommandLineRunner {
         Menu menu = ctx.getBean(Menu.class);
         menu.printMenu();
 
-        Pizzas pizza1 = (Pizzas) ctx.getBean("onion");
+        Pizzas pizza1 = (Pizzas) ctx.getBean("onionPizza");
         Pizzas pizza2 = (Pizzas) ctx.getBean("margherita");
         Pizzas pizza3 = (Pizzas) ctx.getBean("hawaiian");
+
+        Menu menu1 = new Menu(List.of(pizza1, pizza2, pizza3), List.of(), List.of());
+
+        fakeOrder(menu1);
     }
 
     public void fakeOrder(Menu menu) {
